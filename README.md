@@ -15,6 +15,7 @@ Make sure you have the following installed:
 * PHP >= 7.4
 * Composer
 * Expo Go (for mobile testing on physical device)
+* No global Expo CLI required (uses `npx expo`)
 * SQLite support enabled in PHP
 
 ---
@@ -75,14 +76,16 @@ This will:
 
 ## 4. Start backend server
 
+To allow access from mobile devices on the same network, run:
+
 ```bash
-php artisan serve --host 0.0.0.0 --port 8000
+php artisan serve --host=0.0.0.0 --port=8000
 ```
 
-Backend will run at:
+Backend will be accessible at:
 
 ```
-http://127.0.0.1:8000
+http://YOUR_LOCAL_IP:8000
 ```
 
 ---
@@ -121,7 +124,7 @@ EXPO_PUBLIC_API_URL=http://192.168.1.7:8000/api
 ## 3. Start mobile app
 
 ```bash
-npm start
+npx expo start
 ```
 
 Then scan the QR code using **Expo Go**.
@@ -160,7 +163,7 @@ cd mobeecars-web
 composer install
 php artisan migrate
 php artisan db:seed
-php artisan serve
+php artisan serve --host=0.0.0.0 --port=8000
 ```
 
 ## Mobile
@@ -168,7 +171,7 @@ php artisan serve
 ```bash
 cd mobeecars-app
 npm install
-npm start
+npx expo start
 ```
 
 ---
