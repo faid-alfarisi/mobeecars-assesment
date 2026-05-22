@@ -41,7 +41,7 @@ composer install
 
 ---
 
-## 2. Environment setup
+## 2. Environment setup (sqlite with 30 cars included)
 
 Ensure `.env` file exists in `mobeecars-web`.
 
@@ -67,14 +67,21 @@ php artisan migrate
 php artisan db:seed
 ```
 
+---
+
+## 4. Link the public storate (cars image included)
+
+```bash
+php artisan storage:link 
+```
+
 This will:
 
-* Create all required tables
-* Seed default users
+* Link the storate into `public/storage` so the files can be accessed
 
 ---
 
-## 4. Start backend server
+## 5. Start backend server
 
 To allow access from mobile devices on the same network, run:
 
@@ -163,6 +170,7 @@ cd mobeecars-web
 composer install
 php artisan migrate
 php artisan db:seed
+php artisan storage:link
 php artisan serve --host=0.0.0.0 --port=8000
 ```
 
